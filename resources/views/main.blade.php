@@ -1,6 +1,4 @@
 @extends('layout.main')
 @section('content')
-    <div>
-        Main
-    </div>
+<div>Main</div>
 @endsection
