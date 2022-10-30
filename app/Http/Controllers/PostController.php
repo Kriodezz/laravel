@@ -10,19 +10,19 @@ class PostController extends Controller
     public function index(): string
     {
         $post = Post::find(1); //пост по id
-        $postы = Post::all(); //все посты
-        $postы = Post::where('is_published', 1)->get(); //по условию ->first() вернет первый
+        $posts = Post::all(); //все посты
+        $posts = Post::where('is_published', 1)->get(); //по условию ->first() вернет первый
         dd($post);
     }
 
     public function create()
     {
         $data = [
-            'title' => '',
-            'content' => '',
-            'image' => '',
-            'likes' => '',
-            'is_published' => ''
+            'title' => 'first',
+            'content' => 'wtnwtbfvht',
+            'image' => 'img',
+            'likes' => 12,
+            'is_published' => 1
         ]; //массив с данными для таблицы
         Post::create([
             'title' => $data['title'],
@@ -54,5 +54,35 @@ class PostController extends Controller
          * $post = Post::withTrashed()->find(1);
          * $post->restore
          */
+    }
+
+    public function firstOrCreate() //записать если нет, если есть - вернуть
+    {
+        $post = Post::firstOrCreate(
+            [
+                'title' => 'uped3', //Поля и значения по которым ищем
+            ],
+            [
+                'content' => 'uped',  //Данные для записи если не нашли
+                'image' => 'uped',
+                'likes' => 21,
+                'is_published' => 1,
+            ]
+        );
+    }
+
+    public function updateOrCreate() //добавить если нет, если есть - обновить
+    {
+        $post = Post::updateOrCreate(
+            [
+                'title' => 'uped4', //Поля и значения по которым ищем
+            ],
+            [
+                'content' => 'uped4', //Данные для записи если не нашли
+                'image' => 'uped4',
+                'likes' => 21,
+                'is_published' => 1,
+            ]
+        );
     }
 }
