@@ -9,10 +9,10 @@ class PostController extends Controller
 {
     public function index(): string
     {
-        $post = Post::find(1); //пост по id
+    //    $post = Post::find(1); //пост по id
         $posts = Post::all(); //все посты
-        $posts = Post::where('is_published', 1)->get(); //по условию ->first() вернет первый
-        dd($post);
+    //    $posts = Post::where('is_published', 1)->get(); //по условию ->first() вернет первый
+        return view('posts', compact('posts'));
     }
 
     public function create()
