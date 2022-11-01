@@ -14,4 +14,9 @@ class Post extends Model
     protected $table = 'posts';
     protected $guarded = false; //снять защиту от изменений
     //protected $fillable = ['св-во1', 'сво-во2']; //свойства, которые разрешено изменять
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,11 @@ class PostController extends Controller
 {
     public function index(): string
     {
-        $posts = Post::all();
+        $category = Category::find(1);
+        $post = Post::find(1);
+        dd($post->category);
+        $posts = $category->posts;
+        dd($posts);
 
         return view('post.index', compact('posts'));
     }
