@@ -12,16 +12,15 @@ class Post extends Model
     use SoftDeletes;
 
     protected $table = 'posts';
-    protected $guarded = false; //снять защиту от изменений
-    //protected $fillable = ['св-во1', 'сво-во2']; //свойства, которые разрешено изменять
+    protected $guarded = false;
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
+        return $this->belongsTo(Category::class);
     }
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
+        return $this->belongsToMany(Tag::class);
     }
 }

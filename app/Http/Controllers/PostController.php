@@ -6,8 +6,6 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostTag;
 use App\Models\Tag;
-use Illuminate\Http\Request;
-use function GuzzleHttp\Promise\all;
 
 class PostController extends Controller
 {
@@ -27,6 +25,8 @@ class PostController extends Controller
       // $tag = Tag::find(1);              Дать посты тега
       // $posts = $tag->posts;
         $posts = Post::all();
+        $post = Post::find(4);
+        dd($post->category);
         return view('post.index', compact('posts'));
     }
 
@@ -42,7 +42,6 @@ class PostController extends Controller
     {
         $data = request()->validate([
             'title' => 'required|string',
-            'description' => 'required|string',
             'image' => 'string',
             'content' => 'required|string',
             'category_id' => '',
@@ -81,7 +80,6 @@ class PostController extends Controller
     {
         $data = request()->validate([
             'title' => 'string',
-            'description' => 'string',
             'image' => 'string',
             'content' => 'string',
             'category_id' => '',
