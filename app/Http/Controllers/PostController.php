@@ -24,8 +24,7 @@ class PostController extends Controller
       // $tag = Tag::find(1);              Дать посты тега
       // $posts = $tag->posts;
         $posts = Post::all();
-        $post = Post::find(4);
-        dd($post->category);
+
         return view('post.index', compact('posts'));
     }
 
