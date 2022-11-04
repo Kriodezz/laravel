@@ -38,6 +38,27 @@
                       rows="3"
                       placeholder="Content post">{{ $post->content }}</textarea>
         </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select" name="category_id" id="category">
+                @foreach($categories as $category)
+                    <option {{ $category->id == $post->category->id ? 'selected' : '' }}
+                        value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="tags" class="form-label">Tags</label>
+            <select class="form-select" name="tags[]" id="tags" multiple >
+                @foreach($tags as $tag)
+                    <option
+                       @foreach($post->tags as $postTag)
+                        {{ $tag->id == $postTag->id ? 'selected' : '' }}
+                       @endforeach
+                        value="{{ $tag->id }}">{{ $tag->title }}</option>
+                @endforeach
+            </select>
+        </div>
         <button class="btn btn-primary" type="submit">Save</button>
     </form>
 @endsection
