@@ -10,13 +10,6 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <input type="text" name="description" value="{{ old('description') }}" class="form-control" id="description" placeholder="Description">
-            @error('description')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-        <div class="mb-3">
             <label for="image" class="form-label">Image</label>
             <input type="text" name="image" class="form-control" id="image" placeholder="insert image">
         </div>

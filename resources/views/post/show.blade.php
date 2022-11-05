@@ -1,7 +1,6 @@
 @extends('layout.main')
 @section('content')
     <p>{{ $post->id }} . {{ $post->title }}</p>
-    <p>{{ $post->description }}</p>
     <p>{{ $post->content }}</p>
     <div>
         <a class="btn btn-warning mb-3" href="{{ route('post.edit', $post->id) }}">Edit</a>

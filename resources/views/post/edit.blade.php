@@ -13,15 +13,6 @@
                    placeholder="enter title">
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <input type="text"
-                   name="description"
-                   class="form-control"
-                   id="description"
-                   value="{{ $post->description }}"
-                   placeholder="Description">
-        </div>
-        <div class="mb-3">
             <label for="image" class="form-label">Image</label>
             <input type="text"
                    name="image"
